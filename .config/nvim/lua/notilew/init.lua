@@ -1,2 +1,2 @@
-require("notilew.lazy")
 require("notilew.remap")
+require("notilew.lazy")
