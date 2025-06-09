@@ -1,1 +1,2 @@
-require("notilew")
+require("notilew.core")
+require("notilew.lazy")
