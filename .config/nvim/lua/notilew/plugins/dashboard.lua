@@ -20,16 +20,12 @@ return {
 		dashboard.section.header.val = get_header(0, true) -- (index, bool) index of ascii art bool if you want random or not eg: (30, false)
 		dashboard.section.buttons.val = {
 			button("e", icons.ui.new_file .. " New file", ":ene <BAR> startinsert <CR>"),
-			button("f", icons.ui.files .. " Find Files", ":Telescope find_files <CR>"),
-			button(
-				"p",
-				icons.git.repo .. " Find project",
-				"<cmd>lua require('telescope').extensions.projects.projects()<cr>"
-			),
+			button("f", icons.ui.files .. " Find Files", ":<cmd>Telescope find_files<cr>"),
 			button("o", icons.ui.restore .. " Recent Files", "<cmd>Telescope oldfiles<cr>"),
 			button("t", icons.kinds.nvchad.Text .. " Find text", ":Telescope live_grep <CR>"),
 			button("c", " " .. " Neovim config", "<cmd>e ~/.config/nvim/ | cd %:p:h<cr>"),
 			button("l", "󰒲  Lazy", "<cmd>Lazy<cr>"),
+			button("m", "  Mappings", "<cmd>NvCheatsheet<cr>"),
 			button("q", icons.ui.close .. " Quit NVIM", ":qa<CR>"),
 		}
 

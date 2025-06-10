@@ -48,7 +48,7 @@ M.ui = {
         separator_style = "block",
         modules = nil,
     },
-    telescope = { style = "borderless" }, 
+    telescope = { style = "bordered" }, -- borderless / bordered
 }
 
 return M
