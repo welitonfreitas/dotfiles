@@ -23,13 +23,13 @@
 
 local M = {}
 M.base46 = {
-    theme = "tokyodark",
+    theme = "tokyonight", -- tokyonight/tokyodark/everforest/onedark/ayu_light/ayu_dark/vscode/vscode_colored
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = false,
-    theme_toggle = { "tokyodark", "ayu_light" },
+    theme_toggle = { "tokyonight", "ayu_light" },
 }
 
 M.ui = {
