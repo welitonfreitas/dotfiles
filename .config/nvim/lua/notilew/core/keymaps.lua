@@ -103,10 +103,53 @@ local opts = { noremap = true, silent = true }
 -- 	{ noremap = true, silent = true, desc = "Format and save json files" }
 -- )
 
----------------
---- Moving between splits
---------------
-vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
-vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
-vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
-vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
+
+
+-- Move to window using the <ctrl> hjkl keys
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+-- Resize window using <ctrl> arrow keys
+keymap.set("n", "<C-Up>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
+keymap.set("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
+keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
+keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
+-- buffers
+keymap.set("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+keymap.set("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+keymap.set("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+keymap.set("n", "<leader>bd", function()
+    Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
+keymap.set("n", "<leader>bo", function()
+    Snacks.bufdelete.other()
+end, { desc = "Delete Other Buffers" })
+keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+
+-- save file
+keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+--new file
+keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+-- quit
+keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+
+-- windows
+keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
+keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
+keymap.set("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
+-- Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
+-- Snacks.toggle.zen():map("<leader>uz")
+
+-- native snippets. only needed on < 0.11, as 0.11 creates these by default
+if vim.fn.has("nvim-0.11") == 0 then
+    keymap.set("s", "<Tab>", function()
+      return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
+    end, { expr = true, desc = "Jump Next" })
+    keymap.set({ "i", "s" }, "<S-Tab>", function()
+      return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
+    end, { expr = true, desc = "Jump Previous" })
+  end

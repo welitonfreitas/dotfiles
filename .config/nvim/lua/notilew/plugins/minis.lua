@@ -7,6 +7,22 @@ return {
             require('mini.files').setup()
         end 
     },
+    { 
+        'echasnovski/mini.sessions', 
+        version = false,
+        config = function()
+            require('mini.sessions').setup({
+                -- Custom session file path
+                directory = vim.fn.stdpath('data') .. '/sessions',
+                -- Automatically save sessions on Vim exit
+                autoload = true,
+                -- Automatically load sessions on Vim start
+                autoload_last = true,
+                autowrite = true,
+            })
+        end
+    },
+
     -- {
     --     "echasnovski/mini.indentscope",
     --     version = "*",
