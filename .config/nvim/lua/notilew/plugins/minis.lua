@@ -12,7 +12,11 @@ return {
         version = false,
         config = function()
             require('mini.files').setup()
-        end 
+        end,
+        keys = {
+            { "<leader>mf", "<cmd>lua require('mini.files').open()<cr>", desc = "Open Mini Files" },
+            { "<leader>mF", "<cmd>lua require('mini.files').open(vim.fn.expand('%:p'))<cr>", desc = "Open Mini Files with current file" },
+        }
     },
     { 
         'echasnovski/mini.indentscope', 
