@@ -1,13 +1,14 @@
 local M = {}
 
 M.icons = {
-	LazyVim = {
-		diagnostics = {
-			Error = " ",
-			Warn = " ",
-			Hint = " ",
-			Info = " ",
-		},
+	diagnostics = {
+		Error = " ",
+		Warn = " ",
+		Hint = " ",
+		Info = " ",
+	},
+	ft = {
+		octo = "",
 	},
 	kinds = {
 		new = {
