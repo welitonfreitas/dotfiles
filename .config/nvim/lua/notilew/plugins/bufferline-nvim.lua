@@ -1,3 +1,6 @@
+local icons = require("notilew.core.utils.icons").icons
+
+
 return {
     {
         "akinsho/bufferline.nvim",
@@ -23,7 +26,7 @@ return {
             diagnostics = "nvim_lsp",
             always_show_bufferline = false,
             diagnostics_indicator = function(_, _, diag)
-                local icons = require("notilew.core.utils.icons").icons.diagnostics
+                local icons = icons.diagnostics
                 local ret = (diag.error and icons.Error .. diag.error .. " " or "")
                 .. (diag.warning and icons.Warn .. diag.warning or "")
                 return vim.trim(ret)
@@ -41,7 +44,7 @@ return {
             },
             ---@param opts bufferline.IconFetcherOpts
             get_element_icon = function(opts)
-                require("notilew.core.utils.icons").icons.ft[opts.filetype]
+                return icons.ft[opts.filetype]
             end,
             },
         },

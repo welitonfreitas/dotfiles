@@ -6,6 +6,7 @@ return {
             require('mini.animate').setup()
         end
     },
+    { 'echasnovski/mini.nvim', version = false },
     -- { 'echasnovski/mini.statusline', version = false },
     { 
         'echasnovski/mini.files', 
@@ -39,21 +40,17 @@ return {
     },
     { 
         "echasnovski/mini.surround",
-        keys = function(_, keys)
-            local mappings = {
-                { "gsa", desc = "Add Surrounding", mode = { "n", "v" } },
-                { "gsd", desc = "Delete Surrounding" },
-                { "gsf", desc = "Find Right Surrounding" },
-                { "gsF", desc = "Find Left Surrounding" },
-                { "gsh", desc = "Highlight Surrounding" },
-                { "gsr", desc = "Replace Surrounding" },
-                { "gsn", desc = "Update `MiniSurround.config.n_lines`" },
-            }
-            mappings = vim.tbl_filter(function(m)
-            return m[1] and #m[1] > 0
-            end, mappings)
-            return vim.list_extend(mappings, keys)
-        end,
+        opts = {
+            mappings = {
+                add = ";;", -- Add surrounding in Normal and Visual modes
+                delete = ";d", -- Delete surrounding
+                find = ";f", -- Find surrounding (to the right)
+                find_left = ";F", -- Find surrounding (to the left)
+                highlight = ";h", -- Highlight surrounding
+                replace = ";r", -- Replace surrounding
+                update_n_lines = ";n", -- Update `n_lines`
+            },
+        },
     },
 
     -- {

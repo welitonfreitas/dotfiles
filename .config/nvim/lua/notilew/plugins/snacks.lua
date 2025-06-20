@@ -27,6 +27,9 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
+    dependencies = {
+        "kevinhwang91/nvim-ufo"
+    },
     init = function()
         vim.api.nvim_create_autocmd("User", {
         pattern = "OilActionsPost",
@@ -41,7 +44,10 @@ return {
         { "<leader>bd", function() Snacks.bufdelete() end,       desc = "Buffer delete",       mode = "n" },
         { "<leader>ba", function() Snacks.bufdelete.all() end,   desc = "Buffer delete all",   mode = "n" },
         { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Buffer delete other", mode = "n" },
-        { "<leader>bz", function() Snacks.zen() end,             desc = "Toggle Zen Mode",     mode = "n" },
+        { "<leader>uz", function() Snacks.zen() end,             desc = "Toggle Zen Mode",     mode = "n" },
+        { "<leader>wm", function() Snacks.toggle.zoom() end,             desc = "Toggle Zoom mode",     mode = "n" },
+        { "<leader>uZ", function() Snacks.toggle.zoom() end,             desc = "Toggle zoom mode",     mode = "n" },
+        
         -- Top Pickers & Explorer
         { "<leader><space>", function() Snacks.picker.git_files() end, desc = "Smart Find Files" },
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
@@ -190,15 +196,15 @@ return {
         end,
         set = function(state)
             if state == nil then
-            require("noice").enable()
-            require("ufo").enable()
-            vim.o.foldenable = true
-            vim.o.foldcolumn = "1"
+                require("noice").enable()
+                require("ufo").enable()
+                vim.o.foldenable = true
+                vim.o.foldcolumn = "1"
             else
-            require("noice").disable()
-            require("ufo").disable()
-            vim.o.foldenable = false
-            vim.o.foldcolumn = "0"
+                require("noice").disable()
+                require("ufo").disable()
+                vim.o.foldenable = false
+                vim.o.foldcolumn = "0"
             end
         end,
         })

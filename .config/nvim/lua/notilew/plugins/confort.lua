@@ -1,0 +1,31 @@
+return {
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                go = { "goimports", "gofumpt" },
+                javascript = { "prettierd" },
+                javascriptreact = { "prettierd" },
+                json = { "prettierd" },
+                jsonc = { "prettierd" },
+                lua = { "stylua" },
+                python = { "ruff" },
+                typescript = { "prettierd" },
+                typescriptreact = { "prettierd" },
+                yaml = { "prettierd" },
+                html = { "prettierd" },
+                css = { "prettierd" },
+                scss = { "prettierd" },
+                less = { "prettierd" },
+                markdown = { "prettierd" },
+                astro = { "prettierd" },
+                sql = { "sql_formatter" },
+                ruby = { "rubocop" },
+                rust = { "rustfmt" },
+                cpp = { "clang_format" },
+                terraform = { "terraform_fmt" },
+            },
+        },
+    },
+}
