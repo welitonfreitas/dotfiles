@@ -17,4 +17,20 @@ M.actions = {
     end,
 }
 
+---@param actions string[]
+---@param fallback? string|fun()
+function M.map(actions, fallback)
+    return function()
+        for _, name in ipairs(actions) do
+            if M.actions[name] then
+                local ret = M.actions[name]()
+                if ret then
+                    return true
+                end
+            end
+        end
+        return type(fallback) == "function" and fallback() or fallback
+    end
+end
+
 return M
