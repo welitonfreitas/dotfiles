@@ -3,6 +3,10 @@ local opt = vim.opt -- for conciseness
 
 -- set leader key to space
 vim.g.mapleader = " "
+vim.g.python_host_prog = "C:\\msys64\\ucrt64\bin\\python.exe" 
+vim.g.python3_host_prog = "C:\\msys64\\ucrt64\bin\\python3.12.exe"
+
+
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
@@ -19,6 +23,7 @@ opt.wrap = false -- disable line wrapping
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.incsearch = true -- show search results as you type
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
@@ -28,6 +33,8 @@ opt.cursorline = true -- highlight the current cursor line
 opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.updatetime = 50 -- update time for CursorHold event, in milliseconds
+opt.colorcolumn = "80" -- highlight column 80, useful for code style guides
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position

@@ -260,3 +260,11 @@ if vim.fn.has("nvim-0.11") == 0 then
     return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
   end, { expr = true, desc = "Jump Previous" })
 end
+
+map("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Selection Down" })
+map("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Selection Up" })
+map("n", "J", "mzJ`z", { desc = "Join Lines" })
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
+map("n", "n", "nzzzv", { desc = "Next Search Result" })
+map("n", "N", "Nzzzv", { desc = "Prev Search Result" })
