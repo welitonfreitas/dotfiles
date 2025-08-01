@@ -31,7 +31,7 @@ O **prefixo** está definido como **`Ctrl + a`**. Todos os comandos abaixo devem
 
 | Atalho        | Ação                                                                |
 | :------------ | :------------------------------------------------------------------ |
-| `prefixo + |` | Divide o painel atual em dois (esquerda/direita). |
+| `prefixo + \|` | Divide o painel atual em dois (esquerda/direita). |
 | `prefixo + -` | Divide o painel atual em dois (topo/base).                          |
 | `prefixo + \` | Divide o painel em dois, usando a largura total (esquerda/direita). |
 | `prefixo + _` | Divide o painel em dois, usando a altura total (topo/base).         |
